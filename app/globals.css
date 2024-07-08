@@ -38,8 +38,15 @@ body {
   }
 
   /* Style your items */
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 30px;
-}
+  .my-masonry-grid_column > div {
+    /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 30px;
+  }
 
+  .hero {
+    background-image: url("https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/e88236dd83c7f9408af91782329400d7-1704292070364/Banner-Desktop.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
