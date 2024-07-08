@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <main className="container mx-auto md:max-w-7xl">{children}</main>
+        <main className="container mx-auto md:max-w-7xl px-6">{children}</main>
       </body>
       <PrelineScript />
     </html>

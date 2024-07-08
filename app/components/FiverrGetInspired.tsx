@@ -1,11 +1,20 @@
 'use client'
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemCards from "./ItemCards";
 import Masonry from "react-masonry-css";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
+import { InspiredItem } from "./ItemCards";
 
 const FiverrGetInspired = () => {
-  const cardItems = [
+const [loading, setLoading] = useState(true);
+const [cardItems, setCardItems] = useState([] as InspiredItem[]);
+
+useEffect(() => {
+  // Simulate fetching data
+  setTimeout(() => {
+    setCardItems([
     {
       imgUrl:
         // "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/1ac8625c49b85a6ca62be3e153c57930-1717999633/IMG_1125.jpeg",
@@ -73,8 +82,35 @@ const FiverrGetInspired = () => {
         "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/7fcbb9f3e146521ac1c73e80315e4090-1718009282/03%2004%20Illustration%20F.jpg",
       title: "Children’s Book Illustration",
     },
-  ];
+    {
+      imgUrl:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/36be7c816b6c2612ce8ef91a5a5e3fdd-1717772433/Artwork%201.jpg",
+      title: "illustration",
+    },
+    {
+      imgUrl:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/388df9a801806814a95062ffef181fed-1718330348/svisuals._httpss.mj.run7rIMHG87Xvw_A_detailed_digital_illustrat_1edf5ccc-47ca-4235-a72a-4577ca13663f.png",
+      title: "Ai Artists",
+    },
+    {
+      imgUrl:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/d9081e9c34d16c2cfc6aa5b16173dc30-1720147800/HIGHLIGHTS.png",
+      title: "Logo Design",
+    },
+    {
+      imgUrl:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/2eb39d87499fcb3545efafb856fbbbbc-1716584518/Tiff_banana%20a.jpg",
+      title: "Architecture & Interior Design",
+    },
+  ]);
+    setLoading(false);
+  }, 2000); // Simulate 2 second loading time
+}, []);
 
+  // const cardItems = 
+
+
+  
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -88,13 +124,26 @@ const FiverrGetInspired = () => {
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column"
     >
-      {cardItems.map((item, index) => (
-        <div key={index} className="h-auto">
-          <ItemCards title={item.title} imgUrl={item.imgUrl} />
-        </div>
-      ))}
+      {loading
+        ? renderSkeletons()
+        : cardItems.map((item, index) => (
+            <div key={index} className="h-auto">
+              <ItemCards title={item.title} imgUrl={item.imgUrl} />
+            </div>
+          ))}
     </Masonry>
   );
 };
  
 export default FiverrGetInspired;
+
+const renderSkeletons = () => {
+  return Array(16)
+    .fill(null)
+    .map((_, index) => (
+      <div key={index} className="h-auto">
+        <Skeleton height={200} />
+        <Skeleton count={1} />
+      </div>
+    ));
+};
