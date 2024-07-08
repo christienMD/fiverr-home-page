@@ -6,6 +6,7 @@ import Masonry from "react-masonry-css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { InspiredItem } from "./ItemCards";
+import FiverrHeading from "./FiverrHeading";
 
 const FiverrGetInspired = () => {
   const [loading, setLoading] = useState(true);
@@ -118,6 +119,7 @@ const FiverrGetInspired = () => {
 
   return (
     <div className="mt-20">
+      <FiverrHeading label="Get inspired by work done on Fiverr" styles="my-10"/>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
