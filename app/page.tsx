@@ -1,9 +1,10 @@
-import Image from "next/image";
+
+import FiverrGetInspired from "./components/FiverrGetInspired";
 
 export default function Home() {
   return (
     <main>
-      
+      <FiverrGetInspired />
     </main>
   );
 }
