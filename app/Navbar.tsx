@@ -11,8 +11,8 @@ import SearchInput from "./components/SearchInput";
 const Navbar = () => {
 
   return (
-    <header className="border-b h-16 px-6 bg-white">
-      <nav className="flex justify-around sm:justify-between items-center sticky z-40 top-0 border-b h-16 px-6 bg-white gap-5 sm:gap-3 container mx-auto md:max-w-7xl">
+    <header className="border-b h-16 bg-white">
+      <nav className="flex justify-around sm:justify-between items-center sticky z-40 top-0 border-b h-16 bg-white gap-5 sm:gap-3 container mx-auto md:max-w-7xl">
         <div className="flex items-center gap-3 md:gap-3 w-full">
           <div className="flex items-center gap-3">
             <div className="xl:hidden">

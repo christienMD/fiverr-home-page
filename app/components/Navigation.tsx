@@ -1,7 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
-const Navigation = ({ styles }: { styles?: string }) => {
+interface NavigationProps {
+  styles: string;
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+const Navigation = ({ styles , onPrev , onNext }: NavigationProps) => {
   return (
     <div className={`flex items-center gap-4 ${styles}`}>
       <Link href="#" className="font-semibold underline">
@@ -9,11 +15,8 @@ const Navigation = ({ styles }: { styles?: string }) => {
       </Link>
       <div className="flex items-center gap-3">
         <button
-          //   ref={navPrevButton}
           className={`prev-button z-10 bg-white transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md `}
-          //     ${
-          //     isBeginning ? "hidden" : ""
-          //   }
+          onClick={onPrev}
         >
           <svg
             width="8"
@@ -30,10 +33,8 @@ const Navigation = ({ styles }: { styles?: string }) => {
         </button>
 
         <button
-          //   ref={navNextButton}
+          onClick={onNext}
           className={`next-button z-10 bg-white transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md`}
-          //   ${
-          //     isEnd ? "hidden" : ""}
         >
           <svg
             width="8"

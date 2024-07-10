@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import FiverrHeading from "./FiverrHeading";
 import Image from "next/image";
 import PopularCategoryCard, {
@@ -7,8 +9,12 @@ import PopularCategoryCard, {
 import LevelBadge from "./LevelBadge";
 import TopRatedBadge from "./TopRatedBadge";
 import Navigation from "./Navigation";
+import CustomSwiper from "./CustomSwiper";
+import { Swiper as SwiperInstance } from "swiper";
 
 const PopularCategories = () => {
+  const swiperRef = useRef<SwiperInstance | null>(null);
+
   const popularCategories: PopularCategoryProps[] = [
     {
       title: "I will design attention grabbing minimalist logo",
@@ -55,18 +61,43 @@ const PopularCategories = () => {
       rating: 4.9,
       Badge: TopRatedBadge,
     },
+    {
+      title: "I will design heraldic, modern luxury logo with hand drawing",
+      imgUrl:
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/4635026/original/60f66e81cdb879812bb739bc78c7dc2e522448fd.jpg",
+      name: "Rigers.",
+      price: 45,
+      profileImgUrl:
+        "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/e52f2ae2e43bcb04886706346023c3dd-1524052716848/142fb2c5-2321-4fdb-9496-861e753d6e5a.jpg",
+      rating: 4.9,
+      Badge: LevelBadge,
+    },
   ];
+
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
 
   return (
     <div className="">
       <div className="flex items-center justify-between my-8">
-      <FiverrHeading
-        label="Explore popular categories on Fiverr"
-      />
-      <Navigation styles="hidden md:flex"/>
+        <FiverrHeading label="Explore popular categories on Fiverr" />
+        <Navigation
+          onPrev={handlePrev}
+          onNext={handleNext}
+          styles="hidden md:flex"
+        />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-3 flex flex-col gap-3">
           <p className="flex items-center gap-2 border border-gray-600 bg-gray-100 cursor-pointer p-3.5 rounded-md hover:bg-gray-100">
             <Image
               alt=""
@@ -106,18 +137,27 @@ const PopularCategories = () => {
             <span className="font-semibold">Service Voice Over</span>
           </p>
         </div>
-        {popularCategories.map((category, index) => (
-          <PopularCategoryCard
-            key={index}
-            name={category.name}
-            title={category.title}
-            imgUrl={category.imgUrl}
-            rating={category.rating}
-            price={category.price}
-            profileImgUrl={category.profileImgUrl}
-            Badge={category.Badge}
+        <div className="col-span-9">
+          <CustomSwiper
+            data={popularCategories}
+            renderItem={(category) => (
+              <PopularCategoryCard
+                name={category.name}
+                title={category.title}
+                imgUrl={category.imgUrl}
+                rating={category.rating}
+                price={category.price}
+                profileImgUrl={category.profileImgUrl}
+                Badge={category.Badge}
+              />
+            )}
+            spaceBetween={20}
+            useInternalNavigation={false}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
           />
-        ))}
+        </div>
       </div>
     </div>
   );

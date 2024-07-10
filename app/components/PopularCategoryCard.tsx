@@ -1,3 +1,5 @@
+"use client";
+
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,19 +25,19 @@ const PopularCategoryCard = ({
   Badge,
 }: PopularCategoryProps) => {
   return (
-    <div className="relative cursor-pointer">
-      <div className="h-48 w-full">
+    <div className="cursor-pointer w-64">
+      <div className="h-48 w-64 relative">
         <Image
           alt={title}
           src={imgUrl}
           width={0}
           height={0}
-          className="w-[100%] h-[100%] rounded-md object-cover"
+          className="w-[100%] h-[100%] rounded-md object-cover border border-gray-300"
           sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
-      </div>
-      <div className="absolute top-2 right-2">
-        <HeartIcon className="h-7 w-7 text-white fill-gray-800" />
+        <div className="absolute top-2 right-2">
+          <HeartIcon className="h-7 w-7 text-white fill-gray-800" />
+        </div>
       </div>
       <div className="flex flex-col gap-1 mt-1">
         <div className="flex items-center justify-between">
