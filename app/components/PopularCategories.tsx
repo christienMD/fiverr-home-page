@@ -6,6 +6,7 @@ import PopularCategoryCard, {
 } from "./PopularCategoryCard";
 import LevelBadge from "./LevelBadge";
 import TopRatedBadge from "./TopRatedBadge";
+import Navigation from "./Navigation";
 
 const PopularCategories = () => {
   const popularCategories: PopularCategoryProps[] = [
@@ -58,10 +59,12 @@ const PopularCategories = () => {
 
   return (
     <div className="">
+      <div className="flex items-center justify-between my-8">
       <FiverrHeading
-        label="Explore popular categories on Fiverr "
-        styles="mt-8 mb-6"
+        label="Explore popular categories on Fiverr"
       />
+      <Navigation styles="hidden md:flex"/>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         <div className="flex flex-col gap-3">
           <p className="flex items-center gap-2 border border-gray-600 bg-gray-100 cursor-pointer p-3.5 rounded-md hover:bg-gray-100">
