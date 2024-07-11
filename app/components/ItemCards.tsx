@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 export interface InspiredItem {
   title: string;
@@ -8,6 +10,10 @@ export interface InspiredItem {
 }
 
 const ItemCards = ({ title, imgUrl }: InspiredItem) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
   return (
     <div className="relative">
       <Image
@@ -23,18 +29,19 @@ const ItemCards = ({ title, imgUrl }: InspiredItem) => {
       </div>
       <div className="my-2 flex items-center justify-between">
         <h3 className="text-xs sm:text-sm font-semibold">{title}</h3>
-        <div className="hs-dropdown relative inline-flex p-2 hover:bg-gray-100 hover:border-gray-200 rounded-full cursor-pointer">
+        <div className="relative inline-flex p-2 hover:bg-gray-100 hover:border-gray-200 rounded-full cursor-pointer">
           <EllipsisHorizontalIcon
-            id="hs-dropdown-custom-icon-trigger-1"
-            className="h-6 w-6 hs-dropdown-toggle"
+            onClick={toggleDropdown}
+            className="h-6 w-6"
           />
-          <div
-            className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-gray-50 text-gray-700 shadow-md rounded-lg mt-2 py-2 z-20"
-            aria-labelledby="hs-dropdown-custom-icon-trigger-1"
-          >
-            <p className="p-2 hover:bg-gray-100 rounded-md">See Gig</p>
-            <p className="p-2 hover:bg-gray-100 rounded-md">About The Seller</p>
-          </div>
+          {isOpen && (
+            <div className="absolute right-0 top-7 mt-2 w-60 bg-gray-50 text-gray-700 shadow-md rounded-lg py-2 z-20">
+              <p className="p-2 hover:bg-gray-100 rounded-md">See Gig</p>
+              <p className="p-2 hover:bg-gray-100 rounded-md">
+                About The Seller
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
