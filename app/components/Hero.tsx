@@ -1,14 +1,33 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useCallback } from "react";
+import { Swiper as SwiperType } from "swiper";
+import HeroSwiper from "./HeroSwipper";
+import CustomNavigation from "./Navigation";
 
 const Hero = () => {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
+
+  const handleSwiper = useCallback((swiperInstance: SwiperType) => {
+    setSwiper(swiperInstance);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    swiper?.slidePrev();
+  }, [swiper]);
+
+  const handleNext = useCallback(() => {
+    swiper?.slideNext();
+  }, [swiper]);
+
   return (
     <section className="hero mt-16 h-full py-10 px-8 rounded-2xl text-white">
       <h1 className="text-white text-2xl md:text-[34px] font-semibold mb-8">
         Welcome to Fiverr, Mesueh C 🎉
       </h1>
-      <div className="flex items-center gap-4 w-full">
+      <div className="hidden xl:flex items-center gap-4 w-full">
         <Link
           href="#"
           className="w-full bg-green-50 bg-opacity-20 hover:cursor-pointer p-5 rounded-lg focus:border focus:border-white"
@@ -61,6 +80,16 @@ const Hero = () => {
             </button>
           </div>
         </Link>
+      </div>
+      <div className="hidden sm:block xl:hidden">
+        <div className="flex justify-end mb-2.5">
+          <CustomNavigation
+            bg="gray-100"
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        </div>
+        <HeroSwiper onSwiper={handleSwiper} />
       </div>
     </section>
   );

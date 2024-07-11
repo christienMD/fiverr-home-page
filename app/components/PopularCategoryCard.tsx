@@ -1,6 +1,6 @@
 "use client";
 
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, VideoCameraIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { ComponentType } from "react";
@@ -13,6 +13,8 @@ export interface PopularCategoryProps {
   price: number;
   rating: number;
   Badge: ComponentType;
+  offersVideo: boolean;
+  hasVideo?: boolean;
 }
 
 const PopularCategoryCard = ({
@@ -23,6 +25,8 @@ const PopularCategoryCard = ({
   price,
   rating,
   Badge,
+  offersVideo,
+  offersVideo: hasVideo,
 }: PopularCategoryProps) => {
   return (
     <div className="cursor-pointer w-64">
@@ -72,6 +76,12 @@ const PopularCategoryCard = ({
           {rating} <span className="opacity-80">(1k+)</span>
         </div>
         <p className="font-semibold">From ${price}</p>
+        {offersVideo && (
+          <p className="text-gray-800 font-medium text-sm">
+            <VideoCameraIcon className="w-5 h-5 text-gray-800 inline-block" /> Offers video
+            consultations
+          </p>
+        )}
       </div>
     </div>
   );

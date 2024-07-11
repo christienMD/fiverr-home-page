@@ -22,7 +22,7 @@ const ItemCards = ({ title, imgUrl }: InspiredItem) => {
         <HeartIcon className="h-5 w-5 text-gray-600" />
       </div>
       <div className="my-2 flex items-center justify-between">
-        <h3 className="text-sm font-semibold">{title}</h3>
+        <h3 className="text-xs sm:text-sm font-semibold">{title}</h3>
         <div className="hs-dropdown relative inline-flex p-2 hover:bg-gray-100 hover:border-gray-200 rounded-full cursor-pointer">
           <EllipsisHorizontalIcon
             id="hs-dropdown-custom-icon-trigger-1"
