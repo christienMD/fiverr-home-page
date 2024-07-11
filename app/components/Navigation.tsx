@@ -5,6 +5,7 @@ interface NavigationProps {
   containerStyles?: string;
   styles?: string;
   bg?: string;
+  svgSize?: string;
   onPrev: () => void;
   onNext: () => void;
 }
@@ -14,18 +15,19 @@ const Navigation = ({
   onPrev,
   onNext,
   styles,
-  bg,
+  bg="bg-gray-50",
+  svgSize = "h-4 w-4"
 }: NavigationProps) => {
   return (
     <div className={`flex items-center gap-3 ${containerStyles}`}>
       <button
-        className={`prev-button z-10 bg-${bg} transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md ${styles}`}
+        className={`prev-button z-10 ${bg} transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md ${styles}`}
         onClick={onPrev}
       >
         <svg
           width="8"
           height="15"
-          className="h-4 w-4"
+          className={`${svgSize}`}
           viewBox="0 0 8 15"
           xmlns="http://www.w3.org/2000/svg"
         >

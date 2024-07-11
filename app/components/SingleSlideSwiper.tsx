@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect, ReactNode } from "react";
+import React, { useState, useRef, ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper as SwiperInstance } from "swiper";
@@ -19,12 +19,13 @@ interface SwiperProps<T> {
   hasOverlayLeft?: boolean;
   hasOverlayRight?: boolean;
   iconBgSize?: string;
+  isCardHovered: boolean;
 }
 
-const CustomSwiper = <T,>({
+const SingleSlideSwiper = <T,>({
   data,
   renderItem,
-  slidesPerView = "auto",
+  slidesPerView = 1,
   spaceBetween = 16,
   useInternalNavigation = true,
   onSwiper,
@@ -33,25 +34,12 @@ const CustomSwiper = <T,>({
   iconBgSize = "w-9 h-9",
   hasOverlayLeft = false,
   hasOverlayRight = false,
+  isCardHovered,
 }: SwiperProps<T>) => {
   const navPrevButton = useRef<HTMLButtonElement>(null);
   const navNextButton = useRef<HTMLButtonElement>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const [slidesPerGroup, setSlidesPerGroup] = useState(1);
-
-  useEffect(() => {
-    const calculateSlidesPerGroup = () => {
-      if (typeof window !== "undefined") {
-        setSlidesPerGroup(Math.floor(window.innerWidth / (250 + spaceBetween)));
-      }
-    };
-
-    calculateSlidesPerGroup();
-
-    window.addEventListener("resize", calculateSlidesPerGroup);
-    return () => window.removeEventListener("resize", calculateSlidesPerGroup);
-  }, [spaceBetween]);
 
   const onBeforeInit = (swiper: SwiperInstance) => {
     if (
@@ -72,8 +60,7 @@ const CustomSwiper = <T,>({
   };
 
   return (
-    <div className="container mx-auto md:max-w-7xl mt-7 relative">
-      {/* Left gradient overlay */}
+    <div className="container mx-auto md:max-w-7xl relative">
       {hasOverlayLeft && (
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none"></div>
       )}
@@ -88,8 +75,8 @@ const CustomSwiper = <T,>({
         }}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
-        slidesPerGroup={slidesPerGroup}
-        modules={[Navigation, Pagination]}
+        slidesPerGroup={1}
+        modules={[Navigation]}
         className="w-full"
       >
         {data.map((item, index) => (
@@ -104,21 +91,18 @@ const CustomSwiper = <T,>({
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Right gradient overlay */}
       {hasOverlayRight && (
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none"></div>
       )}
 
-      {/* Navigation buttons */}
       {useInternalNavigation && (
         <>
           <button
             ref={navPrevButton}
-            className={`prev-button absolute top-1/2 transform -translate-y-1/2 left-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm ${
-              isBeginning ? "hidden" : ""
-            }`}
+            className={`prev-button absolute top-1/2 transform -translate-y-1/2 left-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-300 ${
+              isBeginning ? "opacity-0 pointer-events-none" : "opacity-100"
+            } ${isCardHovered ? "translate-x-0" : "-translate-x-full"}`}
           >
-            {/* SVG for previous button */}
             <svg
               width="8"
               height="15"
@@ -135,11 +119,10 @@ const CustomSwiper = <T,>({
 
           <button
             ref={navNextButton}
-            className={`next-button absolute top-1/2 transform -translate-y-1/2 right-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm ${
-              isEnd ? "hidden" : ""
-            }`}
+            className={`next-button absolute top-1/2 transform -translate-y-1/2 right-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-300 ${
+              isEnd ? "opacity-0 pointer-events-none" : "opacity-100"
+            } ${isCardHovered ? "translate-x-0" : "translate-x-full"}`}
           >
-            {/* SVG for next button */}
             <svg
               width="8"
               height="15"
@@ -159,4 +142,4 @@ const CustomSwiper = <T,>({
   );
 };
 
-export default CustomSwiper;
+export default SingleSlideSwiper;

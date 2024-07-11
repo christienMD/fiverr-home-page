@@ -15,12 +15,15 @@ import Link from "next/link";
 
 const PopularCategories = () => {
   const swiperRef = useRef<SwiperInstance | null>(null);
-
   const popularCategories: PopularCategoryProps[] = [
     {
       title: "I will design attention grabbing minimalist logo",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/127591897/original/94cd7cd983c29cef01c28a8c8eb1394d3a6e3b91.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142221195/original/f654b68f3ceac0a5173ecc023b2e5c46cb85ddd2.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/127591897/original/94cd7cd983c29cef01c28a8c8eb1394d3a6e3b91.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/127591897/original/94cd7cd983c29cef01c28a8c8eb1394d3a6e3b91.jpg",
+      ],
       name: "Sajid",
       price: 45,
       profileImgUrl:
@@ -31,8 +34,10 @@ const PopularCategories = () => {
     },
     {
       title: "I will redesign edit or update your existing logo creatively",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142221195/original/f654b68f3ceac0a5173ecc023b2e5c46cb85ddd2.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142221195/original/f654b68f3ceac0a5173ecc023b2e5c46cb85ddd2.jpg",
+      ],
       name: "Shaju I.",
       price: 20,
       profileImgUrl:
@@ -41,11 +46,13 @@ const PopularCategories = () => {
       Badge: LevelBadge,
       offersVideo: false,
     },
-
     {
       title: "I will design, redesign, edit, vectorize any logo or graphic",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/5bcfdfbe2a31c378b8d9539429f370a2-1719988098/PowderRiver3.jpg",
+        "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/5bcfdfbe2a31c378b8d9539429f370a2-1719988098/PowderRiver3.jpg",
+        "https://fiverr-res.cloudinary.com/image/upload/t_gig_cards_web,q_auto,f_auto/v1/attachments/delivery/asset/5bcfdfbe2a31c378b8d9539429f370a2-1719988098/PowderRiver3.jpg",
+      ],
       name: "Senara.",
       price: 15,
       profileImgUrl:
@@ -56,8 +63,11 @@ const PopularCategories = () => {
     },
     {
       title: "I will make brilliant designs to suit your need",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/98379278/original/bb6c9442816232f4839bfa3e0976cab6b2a1e878.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/98379278/original/bb6c9442816232f4839bfa3e0976cab6b2a1e878.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/98379278/original/bb6c9442816232f4839bfa3e0976cab6b2a1e878.jpg",
+      ],
       name: "Prachi R.",
       price: 30,
       profileImgUrl:
@@ -68,8 +78,11 @@ const PopularCategories = () => {
     },
     {
       title: "I will design heraldic, modern luxury logo with hand drawing",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/4635026/original/60f66e81cdb879812bb739bc78c7dc2e522448fd.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/4635026/original/60f66e81cdb879812bb739bc78c7dc2e522448fd.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/4635026/original/60f66e81cdb879812bb739bc78c7dc2e522448fd.jpg",
+      ],
       name: "Rigers.",
       price: 45,
       profileImgUrl:
@@ -80,8 +93,11 @@ const PopularCategories = () => {
     },
     {
       title: "I will do vintage , retro , classic , hipster badge , outdoor or",
-      imgUrl:
+      images: [
         "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/8020116/original/6ecd0c33db92111176205c6e877487710a84dc01.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/8020116/original/6ecd0c33db92111176205c6e877487710a84dc01.jpg",
+        "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/8020116/original/6ecd0c33db92111176205c6e877487710a84dc01.jpg",
+      ],
       name: "Chairman Bilal.",
       price: 45,
       profileImgUrl:
@@ -120,7 +136,6 @@ const PopularCategories = () => {
         </div>
       </div>
       <div className="flex gap-3">
-        
         <div className="w-72 min-w-[288px] max-w-[288px] mt-7">
           <div className="col-span-3 flex flex-col gap-3">
             <p className="flex items-center gap-2 border border-gray-600 bg-gray-100 cursor-pointer p-3.5 rounded-md hover:bg-gray-100">
@@ -163,10 +178,10 @@ const PopularCategories = () => {
             </p>
           </div>
         </div>
-        
+
         <div className="flex-grow w-full relative">
           <div className="absolute inset-0 -right-[2vw] overflow-visible">
-            <CustomSwiper
+            {/* <CustomSwiper
               data={popularCategories}
               renderItem={(category) => (
                 <PopularCategoryCard
@@ -185,6 +200,29 @@ const PopularCategories = () => {
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
+            /> */}
+            <CustomSwiper
+              data={popularCategories}
+              renderItem={(category) => (
+                <PopularCategoryCard
+                  name={category.name}
+                  title={category.title}
+                  images={category.images}
+                  rating={category.rating}
+                  price={category.price}
+                  profileImgUrl={category.profileImgUrl}
+                  Badge={category.Badge}
+                  offersVideo={category.offersVideo}
+                />
+              )}
+              slidesPerView="auto"
+              spaceBetween={20}
+              useInternalNavigation={false}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              hasOverlayLeft={false}
+              hasOverlayRight={true}
             />
           </div>
         </div>
