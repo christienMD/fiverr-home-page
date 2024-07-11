@@ -7,9 +7,9 @@ import AnimatedSearch from "./components/AnimatedSearch";
 import Image from "next/image";
 import profileImg from "@/public/mdprofile.jpg";
 import SearchInput from "./components/SearchInput";
+import Header from "./components/Header";
 
 const Navbar = () => {
-
   return (
     <header className="border-b h-16 bg-white px-6 xl:px-0">
       <nav className="flex justify-around sm:justify-between items-center sticky z-40 top-0 border-b h-16 bg-white gap-5 sm:gap-3 container mx-auto md:max-w-7xl">
@@ -273,6 +273,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <Header />
     </header>
   );
 };
