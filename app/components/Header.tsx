@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CustomSwiper from "./CustomSwiper";
+import AnimatedSearch from "./AnimatedSearch";
 
 interface HeaderLink {
   href: string;
@@ -41,7 +42,7 @@ const Header = () => {
           </button>
         ))}
       </div>
-      <div className="xl:hidden">
+      <div className="hidden sm:block xl:hidden">
         <CustomSwiper
           data={headerLinks}
           renderItem={renderHeaderLink}
@@ -49,6 +50,9 @@ const Header = () => {
           spaceBetween={0}
           useInternalNavigation={true}
         />
+      </div>
+      <div className="sm:hidden p-4">
+        <AnimatedSearch />
       </div>
     </header>
   );
