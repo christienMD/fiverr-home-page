@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper as SwiperInstance } from "swiper";
@@ -24,7 +24,7 @@ interface SwiperProps<T> {
 const CustomSwiper = <T,>({
   data,
   renderItem,
-  slidesPerView = "auto",
+  slidesPerView = 1,
   spaceBetween = 16,
   useInternalNavigation = true,
   onSwiper,
@@ -89,7 +89,7 @@ const CustomSwiper = <T,>({
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         slidesPerGroup={slidesPerGroup}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation]}
         className="w-full"
       >
         {data.map((item, index) => (

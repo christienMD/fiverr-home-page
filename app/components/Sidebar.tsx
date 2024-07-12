@@ -36,7 +36,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         id="hs-overlay-example"
-        className={`fixed top-0 left-0 h-full max-w-xs w-full z-50 bg-white border-r transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full max-w-xs w-full z-[100] bg-white border-r transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         role="dialog"
