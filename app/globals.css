@@ -44,7 +44,7 @@ body {
   }
 
   .hero {
-    background-image: url("https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/e88236dd83c7f9408af91782329400d7-1704292070364/Banner-Desktop.png");
+    background-image: url("/Banner-Desktop.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
