@@ -19,6 +19,7 @@ interface SwiperProps<T> {
   hasOverlayLeft?: boolean;
   hasOverlayRight?: boolean;
   iconBgSize?: string;
+  className?: string;
 }
 
 const CustomSwiper = <T,>({
@@ -33,6 +34,7 @@ const CustomSwiper = <T,>({
   iconBgSize = "w-9 h-9",
   hasOverlayLeft = false,
   hasOverlayRight = false,
+  className = "",
 }: SwiperProps<T>) => {
   const navPrevButton = useRef<HTMLButtonElement>(null);
   const navNextButton = useRef<HTMLButtonElement>(null);
@@ -72,7 +74,9 @@ const CustomSwiper = <T,>({
   };
 
   return (
-    <div className="container mx-auto md:max-w-7xl mt-7 relative">
+    <div
+      className={`container mx-auto md:max-w-7xl mt-7 relative ${className}`}
+    >
       {/* Left gradient overlay */}
       {hasOverlayLeft && (
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none"></div>
@@ -90,7 +94,7 @@ const CustomSwiper = <T,>({
         spaceBetween={spaceBetween}
         slidesPerGroup={slidesPerGroup}
         modules={[Navigation]}
-        className="w-full"
+        className={`w-full ${className}`}
       >
         {data.map((item, index) => (
           <SwiperSlide

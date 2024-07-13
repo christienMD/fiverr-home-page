@@ -15,13 +15,13 @@ const Navigation = ({
   onPrev,
   onNext,
   styles,
-  bg="bg-gray-50",
-  svgSize = "h-4 w-4"
+  bg = "bg-gray-50",
+  svgSize = "h-4 w-4",
 }: NavigationProps) => {
   return (
     <div className={`flex items-center gap-3 ${containerStyles}`}>
       <button
-        className={`prev-button z-10 ${bg} transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md ${styles}`}
+        className={`prev-button z-10 bg-gray-50 bg-opacity-75 transition-colors hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center shadow-md ${styles}`}
         onClick={onPrev}
       >
         <svg
@@ -40,7 +40,7 @@ const Navigation = ({
 
       <button
         onClick={onNext}
-        className={`next-button z-10 bg-gray-50 transition-colors hover:bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center shadow-md`}
+        className={`next-button z-10 bg-gray-50 bg-opacity-75 transition-colors hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center shadow-md`}
       >
         <svg
           width="8"

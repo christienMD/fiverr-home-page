@@ -35,7 +35,7 @@ const Navbar = () => {
               </svg>
             </Link>
           </div>
-          <div className="hidden sm:block w-full md:max-w-xl lg:max-w-full">
+          <div className="hidden sm:block w-full md:max-w-lg lg:max-w-ful">
             {/* <AnimatedSearch /> */}
             <SearchInput />
           </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           {/*notifications*/}
-          <div className="hs-tooltip [--placement:bottom] hidden lg:inline-block">
+          <div className="hs-tooltip [--placement:bottom]">
             <button
               type="button"
               className="w-[2.375rem] hidden hs-tooltip-toggle h-[2.375rem] lg:inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none "
@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
 
           {/* emails */}
-          <div className="hs-tooltip [--placement:bottom] hidden lg:inline-block">
+          <div className="hs-tooltip [--placement:bottom]  md:inline-block">
             <button
               type="button"
               className="hs-dropdown-toggle hs-tooltip-toggle relative w-[2.375rem] h-[2.375rem] hidden lg:inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none "

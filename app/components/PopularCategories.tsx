@@ -180,27 +180,7 @@ const PopularCategories = () => {
         </div>
 
         <div className="flex-grow w-full relative">
-          <div className="absolute inset-0 -right-[2vw] overflow-visible">
-            {/* <CustomSwiper
-              data={popularCategories}
-              renderItem={(category) => (
-                <PopularCategoryCard
-                  name={category.name}
-                  title={category.title}
-                  imgUrl={category.imgUrl}
-                  rating={category.rating}
-                  price={category.price}
-                  profileImgUrl={category.profileImgUrl}
-                  Badge={category.Badge}
-                  offersVideo={category.offersVideo}
-                />
-              )}
-              spaceBetween={20}
-              useInternalNavigation={false}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-            /> */}
+          <div className="absolute inset-0 -right-[1vw] overflow-visible">
             <CustomSwiper
               data={popularCategories}
               renderItem={(category) => (
@@ -223,6 +203,7 @@ const PopularCategories = () => {
               }}
               hasOverlayLeft={false}
               hasOverlayRight={true}
+              className="popular-categories-swiper"
             />
           </div>
         </div>
