@@ -59,7 +59,7 @@ const Header = () => {
   };
 
   return (
-    <header className="border-b xl:px-0 relative">
+    <header className="hidden md:block border-b xl:px-0 relative">
       <div className="hidden sm:block container mx-auto md:max-w-7xl relative">
         <div className="relative">
           {showLeftArrow && (
