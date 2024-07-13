@@ -160,3 +160,6 @@ const CustomSwiper = <T,>({
 };
 
 export default CustomSwiper;
+
+// php code snipper
+// x debug

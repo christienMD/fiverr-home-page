@@ -144,7 +144,7 @@ const GraphicsDesignDropdown = () => {
                 <Link
                   key={itemIndex}
                   href="#"
-                  className="block text-gray-700 hover:text-gray-900 mb-1"
+                  className="block text-gray-700 text-opacity-90 hover:text-gray-900 mb-2.5"
                 >
                   {item}
                 </Link>
