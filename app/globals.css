@@ -67,4 +67,8 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .carousel-slider {
+    transition: transform 300ms ease;
+  }
 }

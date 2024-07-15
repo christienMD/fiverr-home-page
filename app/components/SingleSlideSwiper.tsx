@@ -80,14 +80,8 @@ const SingleSlideSwiper = <T,>({
         className="w-full"
       >
         {data.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            className="slide"
-            style={{ width: slidesPerView === "auto" ? "auto" : "100%" }}
-          >
-            <div className="flex items-center justify-center w-full">
-              {renderItem(item)}
-            </div>
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className="w-full h-full">{renderItem(item)}</div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -99,14 +93,18 @@ const SingleSlideSwiper = <T,>({
         <>
           <button
             ref={navPrevButton}
-            className={`prev-button absolute top-1/2 transform -translate-y-1/2 left-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-300 ${
-              isBeginning ? "opacity-0 pointer-events-none" : "opacity-100"
-            } ${isCardHovered ? "translate-x-0" : "-translate-x-full"}`}
+            className={`prev-button absolute top-1/2 transform -translate-y-1/2 left-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-200 ease-in-out ${
+              isBeginning
+                ? "opacity-0 pointer-events-none"
+                : isCardHovered
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-full"
+            }`}
           >
             <svg
               width="8"
               height="15"
-              className={`${svgSize} text-gray-700`}
+              className={`${svgSize} text-gray-600`}
               viewBox="0 0 8 15"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -119,14 +117,18 @@ const SingleSlideSwiper = <T,>({
 
           <button
             ref={navNextButton}
-            className={`next-button absolute top-1/2 transform -translate-y-1/2 right-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-300 ${
-              isEnd ? "opacity-0 pointer-events-none" : "opacity-100"
-            } ${isCardHovered ? "translate-x-0" : "translate-x-full"}`}
+            className={`next-button absolute top-1/2 transform -translate-y-1/2 right-3 z-20 ${iconBg} rounded-full ${iconBgSize} flex items-center justify-center shadow-sm transition-all duration-200 ease-in-out ${
+              isEnd
+                ? "opacity-0 pointer-events-none"
+                : isCardHovered
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-full"
+            }`}
           >
             <svg
               width="8"
               height="15"
-              className={`${svgSize} text-gray-700`}
+              className={`${svgSize} text-gray-600`}
               viewBox="0 0 8 15"
               xmlns="http://www.w3.org/2000/svg"
             >

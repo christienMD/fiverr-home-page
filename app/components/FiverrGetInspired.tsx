@@ -118,8 +118,11 @@ const FiverrGetInspired = () => {
   };
 
   return (
-    <div className="mt-20">
-      <FiverrHeading label="Get inspired by work done on Fiverr" styles="my-10"/>
+    <div className="mt-32">
+      <FiverrHeading
+        label="Get inspired by work done on Fiverr"
+        styles="my-10"
+      />
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

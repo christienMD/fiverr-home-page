@@ -25,7 +25,7 @@ interface SwiperProps<T> {
 const CustomSwiper = <T,>({
   data,
   renderItem,
-  slidesPerView = 1,
+  slidesPerView = "auto",
   spaceBetween = 16,
   useInternalNavigation = true,
   onSwiper,
@@ -45,7 +45,7 @@ const CustomSwiper = <T,>({
   useEffect(() => {
     const calculateSlidesPerGroup = () => {
       if (typeof window !== "undefined") {
-        setSlidesPerGroup(Math.floor(window.innerWidth / (250 + spaceBetween)));
+        setSlidesPerGroup(Math.floor(window.innerWidth / (460 + spaceBetween)));
       }
     };
 
@@ -81,33 +81,35 @@ const CustomSwiper = <T,>({
       {hasOverlayLeft && (
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none"></div>
       )}
-      <Swiper
-        onBeforeInit={onBeforeInit}
-        onSwiper={(swiper) => {
-          handleSlideChange(swiper);
-          if (onSwiper) onSwiper(swiper);
-        }}
-        onSlideChange={(swiper) => {
-          handleSlideChange(swiper);
-        }}
-        slidesPerView={slidesPerView}
-        spaceBetween={spaceBetween}
-        slidesPerGroup={slidesPerGroup}
-        modules={[Navigation]}
-        className={`w-full ${className}`}
-      >
-        {data.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            className="slide"
-            style={{ width: slidesPerView === "auto" ? "auto" : "100%" }}
-          >
-            <div className="flex items-center justify-center w-full">
-              {renderItem(item)}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div>
+        <Swiper
+          onBeforeInit={onBeforeInit}
+          onSwiper={(swiper) => {
+            handleSlideChange(swiper);
+            if (onSwiper) onSwiper(swiper);
+          }}
+          onSlideChange={(swiper) => {
+            handleSlideChange(swiper);
+          }}
+          slidesPerView={slidesPerView}
+          spaceBetween={spaceBetween}
+          slidesPerGroup={slidesPerGroup}
+          modules={[Navigation]}
+          className={`w-full ${className}`}
+        >
+          {data.map((item, index) => (
+            <SwiperSlide
+              key={index}
+              className="slide"
+              style={{ width: slidesPerView === "auto" ? "auto" : "100%" }}
+            >
+              <div className="flex items-center justify-center w-full">
+                {renderItem(item)}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       {/* Right gradient overlay */}
       {hasOverlayRight && (
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none"></div>
