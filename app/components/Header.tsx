@@ -134,4 +134,4 @@ const Header = () => {
 
 export default Header;
 
-// Thank you so much for this opportunity . I believe that I can greately contribute to this dynamic team because so far I have gained valuable experience in software development, with proficiency in HTML, CSS, JavaScript,TypeScript , React.js, Next.js, PHP, and Laravel. I've successfully designed and implemented Great web applications, I have a strong pation for solving problems so I do my best to consistently write clean, maintainable code while making use of software engineering principles and guide lines. It would be a turn around for my life getting this wonderful opportunity to support the vision of the company . Thank you very much.
+

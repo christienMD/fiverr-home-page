@@ -45,7 +45,7 @@ const CustomSwiper = <T,>({
   useEffect(() => {
     const calculateSlidesPerGroup = () => {
       if (typeof window !== "undefined") {
-        setSlidesPerGroup(Math.floor(window.innerWidth / (460 + spaceBetween)));
+        setSlidesPerGroup(Math.floor(window.innerWidth / (300 + spaceBetween)));
       }
     };
 

@@ -228,9 +228,10 @@ const PopularCategories = () => {
   return (
     <div className="mt-10">
       <div className="flex items-center justify-between">
+        
         <FiverrHeading label="Explore popular categories on Fiverr" />
         <div className="flex items-center gap-4">
-          <Link href="#" className="font-semibold underline">
+          <Link href="#" className="font-semibold underline whitespace-nowrap">
             Show All
           </Link>
           <Navigation
@@ -241,7 +242,7 @@ const PopularCategories = () => {
         </div>
       </div>
       <div className="flex gap-6">
-        <div className="w-[300px] min-w-[210px] max-w-[250px] mt-7">
+        <div className="w-[300px] min-w-[250px] max-w-[250px] mt-7">
           <div className="col-span-3 flex flex-col gap-3">
             <p className="flex items-center gap-2 border border-gray-600 bg-gray-100 cursor-pointer p-3.5 rounded-md hover:bg-gray-100">
               <Image
