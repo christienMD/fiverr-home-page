@@ -8,7 +8,7 @@ const FiverrHeading = ({
   styles?: string;
 }) => {
   return (
-    <h2 className={`text-xl md:text-2xl lg:text-[25px] font-semibold ${styles}`}>{label}</h2>
+    <h2 className={`text-xl md:text-2xl lg:text-[25px] font-semibold ${styles} line-clamp-1`}>{label}</h2>
   );
 };
 
