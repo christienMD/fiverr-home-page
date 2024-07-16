@@ -209,7 +209,6 @@ const PopularCategories = () => {
       Badge: ProBadge,
       offersVideo: false,
     },
-    
   ];
 
   const handlePrev = () => {
@@ -224,11 +223,9 @@ const PopularCategories = () => {
     }
   };
 
-
   return (
     <div className="mt-10">
       <div className="flex items-center justify-between">
-        
         <FiverrHeading label="Explore popular categories on Fiverr" />
         <div className="flex items-center gap-4">
           <Link href="#" className="font-semibold underline whitespace-nowrap">
@@ -285,7 +282,6 @@ const PopularCategories = () => {
 
         <div className="flex-grow w-full relative">
           <div className="absolute inset-0 -right-[2vw] overflow-visible">
-          {/* <div className="w-[calc(100%+2vw)]"> */}
             <CustomSwiper
               data={popularCategories}
               renderItem={(category) => (

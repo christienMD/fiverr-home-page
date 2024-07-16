@@ -45,7 +45,7 @@ const CustomSwiper = <T,>({
   useEffect(() => {
     const calculateSlidesPerGroup = () => {
       if (typeof window !== "undefined") {
-        setSlidesPerGroup(Math.floor(window.innerWidth / (300 + spaceBetween)));
+        setSlidesPerGroup(Math.floor(window.innerWidth / (250 + spaceBetween)));
       }
     };
 
@@ -100,7 +100,6 @@ const CustomSwiper = <T,>({
           {data.map((item, index) => (
             <SwiperSlide
               key={index}
-              className="slide"
               style={{ width: slidesPerView === "auto" ? "auto" : "100%" }}
             >
               <div className="flex items-center justify-center w-full">
